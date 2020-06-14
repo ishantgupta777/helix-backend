@@ -1,16 +1,16 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const cors = require("cors");
+const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
 
 const app = express();
 
-const db = require("./models");
+const db = require('./models');
 // db.sequelize.sync({ force: true }).then(() => {
 //   console.log("Drop and re-sync db.");
 // });
 
 db.sequelize.sync().then(() => {
-  console.log("Re-sync db.");
+  console.log('Re-sync db.');
 });
 
 app.use(cors());
@@ -22,9 +22,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // simple route
-app.get("/", (req, res) => {
-  res.json({ message: "Welcome to helix live streaming service" });
+app.get('/', (req, res) => {
+  res.json({ message: 'Welcome to helix live streaming service' });
 });
+
+app.use('/auth', require('./routes/auth'));
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
