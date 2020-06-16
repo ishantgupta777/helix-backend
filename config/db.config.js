@@ -1,9 +1,9 @@
 const Sequelize = require('sequelize');
 
 const dbConfig = {
-  HOST: 'localhost',
+  HOST: '127.0.0.1',
   USER: 'root',
-  PASSWORD: '',
+  PASSWORD: 'password',
   DB: 'httest_live_stream',
   dialect: 'mysql',
   pool: {
