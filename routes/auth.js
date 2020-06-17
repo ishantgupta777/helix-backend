@@ -12,7 +12,7 @@ router.get('/events',verifyToken, homepage.displayEvents);
 function verifyToken(req, res, next) {
 
     const user_token = req.headers['Token'];
-    if (typeof token !== 'undefined') {
+    if (typeof user_token !== 'undefined') {
        req.token = user_token;
        next();
     } else {
