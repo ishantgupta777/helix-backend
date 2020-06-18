@@ -9,11 +9,11 @@ module.exports.displayEvents = (req,res) => {
             res.status(403).json({message :'Error'});
         } else{
             Events.findAll({ attributes: ['evt_name', 'evt_date', 'evt_time', 'evt_desc', 'evt_img_link','userid'] }).then(events => {
-                return res.status(200).json(events,authData)
-            })
-                .catch(err => {
+                return res.status(200).json({events: events ,authData : authData});
+            }).catch(err => {
+                    console.log(err);
                     return res.status(500).json({ success: false, message: 'Server error' });
-                })
+            })
         }
     })
     

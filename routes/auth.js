@@ -11,7 +11,9 @@ router.get('/events',verifyToken, homepage.displayEvents);
 
 function verifyToken(req, res, next) {
 
-    const user_token = req.headers['Token'];
+    const user_token = req.headers['token'];
+    console.log(user_token);
+    console.log(req.headers);
     if (typeof user_token !== 'undefined') {
        req.token = user_token;
        next();
