@@ -13,8 +13,8 @@ module.exports = (sequelize, Sequelize) => {
       lastname: { type: Sequelize.STRING(20), allowNull: false },
       username: { type: Sequelize.STRING(20), defaultValue: null },
       email: { type: Sequelize.STRING(50), allowNull: false },
-      password: { type: Sequelize.STRING , allowNull: false },
-      usertype: { type: Sequelize.STRING(2), allowNull: false },
+      password: { type: Sequelize.STRING(100) , allowNull: false },
+      usertype: { type: Sequelize.CHAR(2), allowNull: false },
       phone: { type: Sequelize.STRING(15), defaultValue: null },
       address: { type: Sequelize.TEXT, defaultValue: null },
       approval: { 
