@@ -1,12 +1,15 @@
 var router = require('express').Router();
 var user = require('../controllers/auth');
 var homepage = require('../controllers/homepage');
+var settings = require('../controllers/settings')
 
 router.post('/signUp', user.signUp);
 
 router.post('/login', user.login);
 
 router.get('/events',verifyToken, homepage.displayEvents);
+
+router.get('/flag',verifyToken,settings.showFlag);
 
 
 function verifyToken(req, res, next) {
