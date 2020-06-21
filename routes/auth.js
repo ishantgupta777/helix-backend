@@ -9,7 +9,9 @@ router.post('/login', user.login);
 
 router.get('/events',verifyToken, homepage.displayEvents);
 
-router.get('/flag',verifyToken,settings.showFlag);
+router.get('/getFlag',verifyToken,settings.getFlag);
+
+router.put('/updateFlag',verifyToken,settings.updateFlag);
 
 
 function verifyToken(req, res, next) {
