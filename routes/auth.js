@@ -2,6 +2,7 @@ var router = require('express').Router();
 var user = require('../controllers/auth');
 var homepage = require('../controllers/homepage');
 var settings = require('../controllers/settings')
+var createEvent = require('../controllers/createEvent')
 
 router.post('/signUp', user.signUp);
 
@@ -12,6 +13,8 @@ router.get('/events',verifyToken, homepage.displayEvents);
 router.get('/getFlag',verifyToken,settings.getFlag);
 
 router.put('/updateFlag',verifyToken,settings.updateFlag);
+
+router.post('/createEvent',verifyToken,createEvent.newEvent);
 
 
 function verifyToken(req, res, next) {
