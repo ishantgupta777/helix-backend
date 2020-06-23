@@ -93,7 +93,7 @@ module.exports.login = async (req, res) => {
 
     return res
       .status(200)
-      .json({ message: 'User logged in successfully', success: true, token });
+      .json({ message: 'User logged in successfully', success: true, token,user });
   } catch (err) {
     console.log(err);
     return res.status(500).json({ message: 'server error', success: false });
