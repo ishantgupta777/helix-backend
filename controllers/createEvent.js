@@ -6,7 +6,7 @@ module.exports.newEvent = (req, res) => {
 
     jwt.verify(req.token, 'SECRET_KEY', (err, authData) => {
         if (err) {
-            res.status(403).json({ message: 'Error' });
+            res.status(403).json({ message: 'Token verification Failed' });
         } else {
             const {desc,name,date,time,genre,picture} = req.body;
             if (!desc || !name || !date || !time || !genre || !picture){

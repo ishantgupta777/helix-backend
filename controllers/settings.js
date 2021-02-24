@@ -27,7 +27,11 @@ module.exports.updateFlag = (req,res) =>{
                 {notification_flag : req.body.flag},
                 {where : {userid : authData['userid']}}
             ).then(() =>{
-                return res.status(200).json({message: "Updated"});
+                if(!notification_flag){
+                   return res.status(200).json({message: "Please enter all fields"});
+                } else {
+                    return res.status(200).json({ message: "Updated" });
+                }
             })
             .catch(err=>{
                 console.log(err);
